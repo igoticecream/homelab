@@ -1,0 +1,14 @@
+[Unit]
+Description=Run docker at startup
+After=pkg-ContainerManager-termd.service
+Requires=pkg-ContainerManager-termd.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/volume1/scripts/docker.sh
+RemainAfterExit=yes
+Restart=no
+
+[Install]
+WantedBy=pkg-ContainerManager-termd.service
