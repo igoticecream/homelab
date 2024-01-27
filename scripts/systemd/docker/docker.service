@@ -6,7 +6,7 @@ Requires=pkg-ContainerManager-termd.service
 [Service]
 Type=oneshot
 User=root
-ExecStart=/volume1/scripts/docker.sh
+ExecStart=/bin/cat /volume2/docker/boot | /bin/xargs -I {} /usr/local/bin/docker-compose -f {} up -d --remove-orphans
 RemainAfterExit=yes
 Restart=no
 
