@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/sbin/lsmod | /bin/grep -q "^tun\s" || /sbin/insmod /lib/modules/tun.ko
+ExecStart=/bin/sh -c '/sbin/lsmod | /bin/grep -q "^tun\s" || /sbin/insmod /lib/modules/tun.ko'
 Restart=on-failure
 
 [Install]
